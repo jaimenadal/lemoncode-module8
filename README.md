@@ -9,7 +9,6 @@ Entrega del módulo de telemetría (Prometheus, Loki y Jaeger).
 - `05-desafio-prometheus/` — **Desafío 5.1**: docker compose con la app `app_map` instrumentada con `prometheus-client` (FastAPI + Gunicorn) y Prometheus scrapeándola.
 - `05.2-desafio-jaeger/` — **Desafío 5.2**: setup de HotROD + Jaeger, diagnóstico de los dos issues (lock de BD y worker pool) y notas de la experiencia.
 - `capturas/` — capturas de pantalla referenciadas desde los README de cada ejercicio.
-- `guia-pasos.md` — guía paso a paso para ejecutar todo de cero.
 
 ## Cómo ejecutar
 
