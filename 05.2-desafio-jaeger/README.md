@@ -57,7 +57,7 @@ docker compose up -d
 
 ![Span SQL SELECT después del fix: 43 ms, sin cola de lock](../capturas/mod8-22.png)
 
-**Reflexión.** Sin tracing esto habría sido difícil de diagnosticar. Una métrica me diría "dispatch tarda 1,7 s" y ahí me quedo; no me dice que el problema es una cola en la base de datos que solo aparece con concurrencia, ni que las rutas van de tres en tres por un pool pequeño. Con logs sueltos podría intuir algo, pero reconstruir a mano el orden de 40 operaciones repartidas entre 6 servicios es inviable. El tracing da esa foto completa de un vistazo: no solo *que* algo va lento, sino *dónde* y *por qué*.
+**Reflexión.** Sin tracing esto habría sido difícil de diagnosticar. Una métrica me diría "dispatch tarda 1,7 s" y ahí me quedo; no me dice que el problema es una cola en la base de datos que solo aparece con concurrencia, ni que las rutas van de tres en tres por un pool pequeño. Con logs sueltos podría intuir algo, pero reconstruir a mano el orden de 40 operaciones repartidas entre 6 servicios es inviable. El tracing da esa foto completa de un vistazo, no solo que algo va lento, sino dónde y por qué.
 
 ## Limpieza
 
