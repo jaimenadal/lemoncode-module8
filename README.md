@@ -13,4 +13,4 @@ Entrega del módulo de telemetría (Prometheus, Loki y Jaeger).
 
 ## Cómo ejecutar
 
-Cada ejercicio tiene su propio README con los comandos. Para el recorrido completo, ver `guia-pasos.md`.
+Cada ejercicio tiene su propio README con los comandos. 
