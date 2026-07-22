@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: app-map
+    # IMPORTANTE: barra final. La app monta el sub-app ASGI de
+    # prometheus_client en /metrics, pero como también monta los
+    # estáticos en '/', la petición a /metrics SIN barra la captura
+    # el mount de estáticos y devuelve 404. Con /metrics/ el mount
+    # de métricas resuelve correctamente (verificado con curl).
+    metrics_path: /metrics/
+    static_configs:
+      - targets: ['app-map:8000']

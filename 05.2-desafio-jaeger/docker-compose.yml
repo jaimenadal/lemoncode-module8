@@ -1,0 +1,19 @@
+---
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    ports:
+      - "16686:16686"   # UI de Jaeger
+      - "4318:4318"     # OTLP HTTP (ingesta de trazas)
+
+  hotrod:
+    image: jaegertracing/example-hotrod:latest
+    container_name: hotrod
+    command: ["all"]
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://jaeger:4318
+    ports:
+      - "8080:8080"     # UI de HotROD
+    depends_on:
+      - jaeger
