@@ -25,7 +25,7 @@ docker compose up -d
 
    ![Traza /dispatch completa antes del fix (1,73 s)](../capturas/mod8-17.png)
 
-3. **Issue 1 — la cola en la base de datos.** El span `mysql SQL SELECT` (dentro de customer) se disparaba de tamaño. La causa estaba en sus **logs**: líneas del tipo "esperando el lock detrás de N transacciones". La base de datos simula tener una única conexión, así que con varias peticiones a la vez las consultas se ponen en fila. En el peor caso el `SQL SELECT` llegó a **1,34 s**, cuando en condiciones normales debería tardar ~300 ms.
+3. **Issue 1 — la cola en la base de datos.** El span `mysql SQL SELECT` (dentro de customer) se disparaba de tamaño. La causa estaba en sus **logs**: líneas del tipo "esperando el lock detrás de 4 transacciones". La base de datos simula tener una única conexión, así que con varias peticiones a la vez las consultas se ponen en fila. En el peor caso el `SQL SELECT` llegó a **1,34 s**, cuando en condiciones normales debería tardar ~300 ms.
 
    ![Logs del span SQL SELECT: "Waiting for lock behind 4 transactions"](../capturas/mod8-19.png)
 
