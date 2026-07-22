@@ -1,4 +1,3 @@
-# Configuración mínima: Prometheus se scrapea a sí mismo
 global:
   scrape_interval: 15s
 
