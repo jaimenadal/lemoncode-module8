@@ -62,7 +62,3 @@ docker compose up -d --build
 ```bash
 docker compose down
 ```
-
-## Nota sobre el worker de Gunicorn
-
-La doc oficial usa `-k uvicorn.workers.UvicornWorker`. En versiones recientes de uvicorn esa clase está marcada como deprecated (se movió al paquete `uvicorn-worker`), pero sigue existiendo y funcionando — verificado con uvicorn 0.51. Si en el futuro el arranque falla con `ModuleNotFoundError: uvicorn.workers`, la solución es `pip install uvicorn-worker` y cambiar el flag a `-k uvicorn_worker.UvicornWorker`.
