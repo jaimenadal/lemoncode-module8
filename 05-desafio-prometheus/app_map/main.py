@@ -7,9 +7,7 @@ app = FastAPI()
 
 app.include_router(item_router)
 
-# Prometheus ASGI app en /metrics — debe montarse ANTES del mount de '/'
-# porque Starlette resuelve las rutas en orden de registro y el mount de
-# estáticos en '/' captura todo lo que llegue después.
+
 metrics_app = make_asgi_app()
 app.mount("/metrics", metrics_app)
 
